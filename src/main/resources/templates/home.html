@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout :: head(#{home})"></head>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<!--<div class="row">-->
+<!--    <div class="col" th:if="${#lists.isEmpty(topics)}" th:text="#{topic.list.empty}">Topic list is empty</div>-->
+<!--    <div class="col" th:unless="${#lists.isEmpty(topics)}">-->
+<!--        <span th:text="#{topic.list}">Topics list</span>-->
+<!--        <table class="table">-->
+<!--            <tr>-->
+<!--                <th th:text="#{topic.id}">Id</th>-->
+<!--                <th th:text="#{topic.tittle}">Topic Title</th>-->
+<!--                <th th:text="#{topic.author}">Author</th>-->
+<!--            </tr>-->
+<!--            <tr th:each="topic: ${topics}">-->
+<!--                <td th:text="${topic.id}"></td>-->
+<!--                <td th:text="${topic.topicTitle}"></td>-->
+<!--                <td th:text="${topic.author}"></td>-->
+<!--                <td><a th:href="@{'/topic/' + ${topic.id} + '/view'}" th:text="#{view}">View</a></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--        <nav aria-label="Page navigation"-->
+<!--        th:if="${topics.totalPages > 1}">-->
+<!--            <ul class="pagination">-->
+<!--                <li class="page-item"-->
+<!--                    th:classappend="${topics.number == 0} ? disabled">-->
+<!--                    <a class="page-link"-->
+<!--                       th:href="@{/(page=${topics.number - 1})}" th:text="#{previous}">Previous</a></li>-->
+
+<!--                <li th:each="i : ${#numbers.sequence(0, topics.totalPages - 1)}" class="page-item"-->
+<!--                    th:classappend="${i == topics.number} ? active">-->
+<!--                    <a class="page-link" th:href="@{'/?page=' + ${i}}" th:text="${i + 1}"></a></li>-->
+
+<!--                <li class="page-item"-->
+<!--                    th:classappend="${topics.number == topics.totalPages - 1} ? disabled">-->
+<!--                    <a class="page-link"-->
+<!--                       th:href="@{/(page=${topics.number + 1})}" th:text="#{next}">Next</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </div>-->
+</body>
+</html>
