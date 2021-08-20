@@ -22,22 +22,22 @@
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a sec:authorize="hasRole('ADMIN')" class="navbar-brand" th:href="@{/topic/create}" th:text="#{topic.add.new.topic}">Add new Topic</a>
+<!--        <a sec:authorize="hasRole('ADMIN')" class="navbar-brand" th:href="@{/topic/create}" th:text="#{topic.add.new.topic}">Add new Topic</a>-->
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/register}" th:text="#{register}"
-                       th:classappend="${#request.getRequestURI().equals('/register')} ? active">Register</a>
-                </li>
-                <li class="nav-item active">
-                    <a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/login}" th:text="#{login}"
-                       th:classappend="${#request.getRequestURI().equals('/login')} ? active">Login</a>
-                </li>
-                <li class="nav-item active">
-                    <a sec:authorize="hasRole('USER')" class="nav-link" th:href="@{/logout}" th:text="#{logout}"
-                       th:classappend="${#request.getRequestURI().equals('/logout')} ? active">Logout</a>
-                </li>
+<!--        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">-->
+<!--            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">-->
+<!--                <li class="nav-item active">-->
+<!--                    <a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/register}" th:text="#{register}"-->
+<!--                       th:classappend="${#request.getRequestURI().equals('/register')} ? active">Register</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active">-->
+<!--                    <a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/login}" th:text="#{login}"-->
+<!--                       th:classappend="${#request.getRequestURI().equals('/login')} ? active">Login</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active">-->
+<!--                    <a sec:authorize="hasRole('USER')" class="nav-link" th:href="@{/logout}" th:text="#{logout}"-->
+<!--                       th:classappend="${#request.getRequestURI().equals('/logout')} ? active">Logout</a>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}" th:text="#{home}"
                        th:classappend="${#request.getRequestURI().equals('/')} ? active">Home</a>
@@ -53,9 +53,9 @@
                                th:unless="${#locale.toString().equals('en')}" th:text="#{lang}">EN</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a sec:authorize="isAuthenticated()" class="nav-link" sec:authentication="principal.username">User</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a sec:authorize="isAuthenticated()" class="nav-link" sec:authentication="principal.username">User</a>-->
+<!--                </li>-->
             </ul>
         </div>
     </nav>
