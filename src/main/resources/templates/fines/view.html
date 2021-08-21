@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout :: head(${fine.getUsername()})"></head>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<!--<h1 th:text="${fine.parkingCity}">>Topic tittle</h1>-->
+<!--<br>-->
+<!--<div th:text="${fine.parkingCity}"></div>-->
+<!--<br>-->
+<!--<div th:text="${fine.parkingCity}"></div>-->
+<!--<br>-->
+<!--<div>-->
+<!--    <a sec:authorize="hasRole('ADMIN')" th:href="@{'/topic/' + ${topic.id} + '/edit'}" th:text="#{topic.edit.tittle}"-->
+<!--       class="btn btn-outline-dark">Edit Topic</a>-->
+<!--    <a sec:authorize="hasRole('ADMIN')" th:href="@{'/topic/' + ${topic.id} + '/view'}" th:text="#{topic.delete}"-->
+<!--       class="btn btn-outline-danger">Delete Topic</a>-->
+<!--</div>-->
+<div th:object="${fine}" class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="id"><strong th:text="#{fine.id}">Id</strong></label>
+            <input type="text" id="id" name="id" class="form-control-plaintext" th:field="*{id}"
+                   th:placeholder="#{fine.id}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="username"><strong th:text="#{username}">Username</strong></label>
+            <input type="text" id="username" name="username" class="form-control-plaintext"
+                   th:field="*{username}"
+                   th:placeholder="#{username}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="parking_city"><strong th:text="#{parking.city}">City</strong></label>
+            <input type="text" id="parking_city" name="parking_city" class="form-control-plaintext" th:field="*{parkingCity}"
+                   th:placeholder="#{parking.city}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="parking_zone"><strong th:text="#{parking.zone}">Zone</strong></label>
+            <input type="text" id="parking_zone" name="parking_zone" class="form-control-plaintext" th:field="*{parkingZone}"
+                   th:placeholder="#{parking.zone}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="parking_status"><strong th:text="#{parking.status}">Color</strong></label>
+            <input type="text" id="parking_status" name="parking_status" class="form-control-plaintext" th:field="*{recordStatus}"
+                   th:placeholder="#{parking.status}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="fine_date_time"><strong th:text="#{fine.date.time}">Description</strong></label>
+            <input id="fine_date_time" name="fine_date_time" class="form-control-plaintext" th:field="*{fineDateTime}"
+                      th:placeholder="#{fine.date.time}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="fine_amount"><strong th:text="#{amount}">Value</strong></label>
+            <input type="text" id="fine_amount" name="fine_amount" class="form-control-plaintext" th:field="*{fineAmount}"
+                   th:placeholder="#{amount}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="created"><strong th:text="#{created}">Created</strong></label>
+            <input type="text" id="created" name="created" class="form-control-plaintext" th:field="*{created}"
+                   th:placeholder="#{created}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="updated"><strong th:text="#{updated}">Updated</strong></label>
+            <input type="text" id="updated" name="updated" class="form-control-plaintext" th:field="*{updated}"
+                   th:placeholder="#{updated}" disabled>
+        </div>
+    </div>
+</div>
+</body>
+</html>
