@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.model.parking;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,8 +25,4 @@ public class ParkingFine {
         private LocalDateTime fineDateTime;
 
         private BigDecimal fineAmount;
-
-        private LocalDateTime created;
-
-        private LocalDateTime updated;
 }

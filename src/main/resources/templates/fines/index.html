@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout :: head(#{fine.title})"></head>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<div class="row">
+    <div class="col" th:if="${#lists.isEmpty(fines)}" th:text="#{fine.list.is.empty}">Fines list is empty</div>
+    <div class="col" th:unless="${#lists.isEmpty(fines)}">
+        <span th:text="#{fine.list}">Fines list</span>
+        <table class="table">
+            <tr>
+                <th th:text="#{fine.id}">Id</th>
+                <th th:text="#{username}">Topic Title</th>
+                <th th:text="#{parking.city}">City</th>
+                <th th:text="#{parking.zone}">Zone</th>
+                <th th:text="#{parking.status}">Status</th>
+                <th th:text="#{fine.date.time}">Date</th>
+                <th th:text="#{amount}">Amount</th>
+            </tr>
+            <tr th:each="fine: ${fines}">
+                <td th:text="${fine.id}"></td>
+                <td th:text="${fine.username}"></td>
+                <td th:text="${fine.parkingCity}"></td>
+                <td th:text="${fine.parkingZone}"></td>
+                <td th:text="${fine.recordStatus}"></td>
+                <td th:text="${fine.fineDateTime}"></td>
+                <td th:text="${fine.fineAmount}"></td>
+                <td><a th:href="@{'/fines/' + ${fine.id} + '/view'}" th:text="#{view}">View</a></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+<!--        <nav aria-label="Page navigation"-->
+<!--        th:if="${topics.totalPages > 1}">-->
+<!--            <ul class="pagination">-->
+<!--                <li class="page-item"-->
+<!--                    th:classappend="${topics.number == 0} ? disabled">-->
+<!--                    <a class="page-link"-->
+<!--                       th:href="@{/(page=${topics.number - 1})}" th:text="#{previous}">Previous</a></li>-->
+
+<!--                <li th:each="i : ${#numbers.sequence(0, topics.totalPages - 1)}" class="page-item"-->
+<!--                    th:classappend="${i == topics.number} ? active">-->
+<!--                    <a class="page-link" th:href="@{'/?page=' + ${i}}" th:text="${i + 1}"></a></li>-->
+
+<!--                <li class="page-item"-->
+<!--                    th:classappend="${topics.number == topics.totalPages - 1} ? disabled">-->
+<!--                    <a class="page-link"-->
+<!--                       th:href="@{/(page=${topics.number + 1})}" th:text="#{next}">Next</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </div>-->
+</body>
+</html>

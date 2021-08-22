@@ -1,0 +1,17 @@
+package com.example.demo.model.parking;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ParkingFineRequestDTO {
+
+    private Long userId;
+
+    private String parkingCity;
+
+    private String parkingZone;
+}

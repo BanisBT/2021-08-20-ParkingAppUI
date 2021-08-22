@@ -22,4 +22,16 @@ public class ParkingFineController {
         model.addAttribute("fine", fineService.getFineById(id));
         return "/fines/view";
     }
+
+    @GetMapping
+    public String getFines(Model model) {
+        model.addAttribute("fines", fineService.getFines());
+        return "/fines/index";
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        fineService.test();
+        return "redirect:/fines/view";
+    }
 }

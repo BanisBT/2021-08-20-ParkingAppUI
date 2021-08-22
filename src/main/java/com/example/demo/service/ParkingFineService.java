@@ -1,25 +1,30 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.dao.ApiDAO;
-import com.example.demo.model.ParkingFine;
+import com.example.demo.controller.dao.ParkingFineApiDAO;
+import com.example.demo.model.parking.ParkingFine;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ParkingFineService {
 
-    private final ApiDAO apiDAO;
+    private final ParkingFineApiDAO parkingFineApiDAO;
 
-    public ParkingFineService(ApiDAO apiDAO) {
-        this.apiDAO = apiDAO;
+    public ParkingFineService(ParkingFineApiDAO parkingFineApiDAO) {
+        this.parkingFineApiDAO = parkingFineApiDAO;
     }
 
     public ParkingFine getFineById(Long id) {
-        LocalDateTime now = LocalDateTime.now();
-        return apiDAO.getFineById(id);
-//        return new ParkingFine(1L, "Banis", "Vilnius", "Vilnius Blue",
-//                "Paid", now, BigDecimal.TEN, now, now);
+        return parkingFineApiDAO.getFineById(id);
+    }
+
+    public List<ParkingFine> getFines() {
+        return parkingFineApiDAO.getFines();
+    }
+
+    public void test(){
+        parkingFineApiDAO.deleteFine(2L);
+//        parkingFineApiDAO.createFine();
     }
 }
