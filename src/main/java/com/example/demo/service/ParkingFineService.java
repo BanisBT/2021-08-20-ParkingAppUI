@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.dao.ParkingFineApiDAO;
+import com.example.demo.dao.ApiDAO;
 import com.example.demo.model.parking.ParkingFine;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +9,22 @@ import java.util.List;
 @Service
 public class ParkingFineService {
 
-    private final ParkingFineApiDAO parkingFineApiDAO;
+    private final ApiDAO apiDAO;
 
-    public ParkingFineService(ParkingFineApiDAO parkingFineApiDAO) {
-        this.parkingFineApiDAO = parkingFineApiDAO;
+    public ParkingFineService(ApiDAO apiDAO) {
+        this.apiDAO = apiDAO;
     }
 
     public ParkingFine getFineById(Long id) {
-        return parkingFineApiDAO.getFineById(id);
+        return apiDAO.getFineById(id);
     }
 
     public List<ParkingFine> getFines() {
-        return parkingFineApiDAO.getFines();
+        return apiDAO.getFines();
     }
 
     public void test(){
-        parkingFineApiDAO.deleteFine(2L);
+        apiDAO.deleteFine(2L);
 //        parkingFineApiDAO.createFine();
     }
 }
