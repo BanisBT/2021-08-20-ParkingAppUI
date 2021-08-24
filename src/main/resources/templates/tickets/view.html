@@ -3,23 +3,11 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="fragments/layout :: head(${fine.getUsername()})"></head>
+<head th:replace="fragments/layout :: head(${ticket.getUsername()})"></head>
 <body>
 <header th:replace="fragments/layout :: header"></header>
 
-<!--<h1 th:text="${fine.parkingCity}">>Topic tittle</h1>-->
-<!--<br>-->
-<!--<div th:text="${fine.parkingCity}"></div>-->
-<!--<br>-->
-<!--<div th:text="${fine.parkingCity}"></div>-->
-<!--<br>-->
-<!--<div>-->
-<!--    <a sec:authorize="hasRole('ADMIN')" th:href="@{'/topic/' + ${topic.id} + '/edit'}" th:text="#{topic.edit.tittle}"-->
-<!--       class="btn btn-outline-dark">Edit Topic</a>-->
-<!--    <a sec:authorize="hasRole('ADMIN')" th:href="@{'/topic/' + ${topic.id} + '/view'}" th:text="#{topic.delete}"-->
-<!--       class="btn btn-outline-danger">Delete Topic</a>-->
-<!--</div>-->
-<div th:object="${fine}" class="row">
+<div th:object="${ticket}" class="row">
     <div class="col-md-3 col-sm-6">
         <div class="form-group">
             <label for="id"><strong th:text="#{id}">Id</strong></label>
@@ -43,20 +31,31 @@
                    th:placeholder="#{parking.zone}" disabled>
         </div>
         <div class="form-group">
-            <label for="parking_status"><strong th:text="#{parking.status}">Color</strong></label>
+            <label for="parking_status"><strong th:text="#{parking.status}">Status</strong></label>
             <input type="text" id="parking_status" name="parking_status" class="form-control-plaintext" th:field="*{recordStatus}"
                    th:placeholder="#{parking.status}" disabled>
         </div>
         <div class="form-group">
-            <label for="fine_date_time"><strong th:text="#{fine.date.time}">Description</strong></label>
-            <input id="fine_date_time" name="fine_date_time" class="form-control-plaintext" th:field="*{fineDateTime}"
-                      th:placeholder="#{fine.date.time}" disabled>
+            <label for="ticket_started_time"><strong th:text="#{ticket.began.time}">Ticket start time</strong></label>
+            <input id="ticket_started_time" name="ticket_started_time" class="form-control-plaintext" th:field="*{parkingBegan}"
+                   th:placeholder="#{ticket.began.time}" disabled>
         </div>
         <div class="form-group">
-            <label for="fine_amount"><strong th:text="#{fine.amount}">Value</strong></label>
-            <input type="text" id="fine_amount" name="fine_amount" class="form-control-plaintext" th:field="*{fineAmount}"
-                   th:placeholder="#{fine.amount}" disabled>
+            <label for="ticket_ended_time"><strong th:text="#{ticket.ended.time}">Ticket end time</strong></label>
+            <input id="ticket_ended_time" name="ticket_ended_time" class="form-control-plaintext" th:field="*{parkingEnd}"
+                   th:placeholder="#{ticket.ended.time}" disabled>
         </div>
+    </div>
+    <div class="form-group">
+        <label for="ticket_amount"><strong th:text="#{ticket.amount}">Ticket amount</strong></label>
+        <input id="ticket_amount" name="ticket_amount" class="form-control-plaintext" th:field="*{ticketAmount}"
+               th:placeholder="#{ticket.amount}" disabled>
+    </div>
+    <div class="form-group">
+        <label for="ticket_date"><strong th:text="#{ticket.date}">Description</strong></label>
+        <input id="ticket_date" name="ticket_date" class="form-control-plaintext" th:field="*{ticketDateTime}"
+               th:placeholder="#{ticket.date}" disabled>
+    </div>
     </div>
 </div>
 </body>

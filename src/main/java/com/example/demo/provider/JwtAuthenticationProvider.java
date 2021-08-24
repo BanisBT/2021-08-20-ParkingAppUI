@@ -29,8 +29,8 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         try {
             LoginResponseDTO loginResponseDTO = userService.login(authentication.getName(), authentication.getCredentials().toString());
-            User user = loginResponseDTO.getUser();
-            String accessToken = loginResponseDTO.getAccessToken();
+            User user = loginResponseDTO.getUserDTO();
+            String accessToken = loginResponseDTO.getLoginToken();
 
             session.setAttribute("accessToken", accessToken);
 

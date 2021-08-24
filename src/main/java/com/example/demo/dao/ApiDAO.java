@@ -2,6 +2,8 @@ package com.example.demo.dao;
 
 import com.example.demo.model.parking.ParkingFine;
 import com.example.demo.model.parking.ParkingFineRequestDTO;
+import com.example.demo.model.parking.ParkingTicket;
+import com.example.demo.model.parking.ParkingTicketRequestTDO;
 import com.example.demo.model.user.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,8 +51,14 @@ public class ApiDAO {
     }
 
     public LoginResponseDTO login(String username, String password) {
-        LoginRequestDTO loginRequest = new LoginRequestDTO(username, password);
-        LoginResponseDTO loginResponseDTO = restTemplate.postForObject(url + "/login", loginRequest, LoginResponseDTO.class);
-        return loginResponseDTO;
+        return restTemplate.postForObject(url + "/login", new LoginRequestDTO(username, password), LoginResponseDTO.class);
+    }
+
+    public ParkingTicket createTicket(ParkingTicketRequestTDO ticketDTO) {
+        return null;
+    }
+
+    public ParkingTicket getTicket(Long id) {
+       return restTemplate.getForObject(url + "/{id}", ParkingTicket.class, id);
     }
 }

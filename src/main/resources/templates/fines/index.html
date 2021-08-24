@@ -13,13 +13,13 @@
         <span th:text="#{fine.list}">Fines list</span>
         <table class="table">
             <tr>
-                <th th:text="#{fine.id}">Id</th>
+                <th th:text="#{id}">Id</th>
                 <th th:text="#{username}">Topic Title</th>
                 <th th:text="#{parking.city}">City</th>
                 <th th:text="#{parking.zone}">Zone</th>
                 <th th:text="#{parking.status}">Status</th>
                 <th th:text="#{fine.date.time}">Date</th>
-                <th th:text="#{amount}">Amount</th>
+                <th th:text="#{fine.amount}">Amount</th>
             </tr>
             <tr th:each="fine: ${fines}">
                 <td th:text="${fine.id}"></td>

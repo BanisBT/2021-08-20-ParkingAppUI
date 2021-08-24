@@ -1,8 +1,10 @@
 package com.example.demo.model.user;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class RegisterRequestDTO {
 
     private String username;

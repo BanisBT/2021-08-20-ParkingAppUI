@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout :: head(#{ticket.title})"></head>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<h1 th:text="#{ticket.start}">Start ticket</h1>
+<br>
+<div class="col">
+  <div class="col-md-5 col-sm-8">
+  <form method="post" th:action="@{/tickets/create.html}" th:object="${ticketDTO}">
+    <div class="form-group">
+      <label th:text="#{parking.city}">Parking city</label>
+      <input type="text" name="parking_city" class="form-control"
+             th:placeholder="#{parking.city}" th:errorclass="is-invalid"
+             th:field="*{parkingCity}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label th:text="#{parking.zone}">Parking zone</label>
+      <input type="text" name="parking_zone" class="form-control"
+             th:placeholder="#{parking.zone}" th:errorclass="is-invalid"
+             th:field="*{parkingZone}">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" th:text="#{ticket.start}">Start ticket</button>
+    <a th:href="@{/}" th:text="#{button.cancel}" class="btn btn-outline-primary">Cancel</a>
+  </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,12 +1,14 @@
 package com.example.demo.model.user;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 public class User {
 
     private Long id;
